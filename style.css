@@ -1,0 +1,463 @@
+body{
+    font-family: 'Source Serif Pro', serif;
+}
+
+
+.btn-primary{
+    background-color: rgb(0,0,70);
+    border-color:  rgb(0,0,70);
+}
+
+.btn-primary:hover{
+    background-color: rgb(0, 0, 70,0.8);
+    border-color:  rgba(0, 0, 70,0.8);
+}
+.header-container{
+    background-image:
+    linear-gradient(
+        70deg,
+        rgba(0,0,70,0.7),
+        60%,
+        rgba(28, 181, 224,0.8)
+    ),
+    url("assets/vessel.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 850px;
+}
+
+.container-fluid{
+    padding: 0em;
+}
+
+.nav{
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    grid-auto-rows: 100px;
+    align-items: center;
+    padding: 2em 5em;
+}
+
+.menu-items{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.menu-item{
+    list-style: none;
+    color: white;
+    font-weight: 400;
+    padding: 2em;
+    cursor: pointer;
+}
+
+.logo-text{
+    color: white;
+    font-weight: bold;
+}
+
+.hero-text{
+    font-size: 2.5em;
+    font-weight: 600;
+    color: white;
+    margin-top: 100px;
+    padding-left: 2em;
+}
+
+.track-package{
+    padding: 2em 5em;
+}
+
+.track-package-input{
+    height: 60px;
+    border-radius: 5px;
+    border-style: none;
+    width: 500px;
+    padding: 1em;
+    text-align: center;
+}
+
+.track-package-button{
+    height: 60px;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 70);
+    width: 150px;
+    border-style: none;
+    color: white;
+    padding: 10px;
+}
+.ql-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.ql-sub-container{
+    display: flex;
+    padding: 1.5em;
+}
+
+
+.ql-title{
+    color: white;
+    align-self: center;
+    padding: 10px;
+    font-weight: 300;
+}
+
+.ql-icon{
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    padding: 25px;
+    /* border-radius: 50px; */
+}
+
+.ql-icon>i{
+    color: white;
+    font-size: 35px;
+    text-align: center;
+}
+
+/* logistics-solution */
+
+.logistics-solution{
+    padding: 3rem 5rem;
+    /* height: 100vh; */
+}
+
+.ls-title{
+    font-size: 1.5em;
+    font-weight: medium;
+}
+
+.ls-container{
+    display: grid;
+    grid-template-rows: 1fr 200px;
+}
+
+.ls-container-sub{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.ls-card{
+    margin: 3em;
+    border-style: none;
+    box-shadow: -9px 10px 50px 1px rgba(0,0,0,0.26);
+-webkit-box-shadow: -9px 10px 50px 1px rgba(0,0,0,0.26);
+-moz-box-shadow: -9px 10px 50px 1px rgba(0,0,0,0.26);
+}
+
+.card-list>li{
+    padding: 0.5em;
+    list-style: square;
+    color:gray;
+}
+
+
+.shipping-services{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.ss-item{
+    font-size: 2em;
+    padding: 3rem;
+    color: #cccccc;
+}
+
+.control-info{
+    background-color: #D7DDE8;
+    padding: 5rem;
+}
+
+.ci-title{
+    color: rgba(0,0,70);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.ci-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.ci-info{
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+
+}
+
+.ci-image{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.ci-message-box{
+    padding: 10px;
+}
+
+.ci-sub-title{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.covid-container{
+    padding: 2em 5em;
+}
+
+.cc-title{
+    color: red;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.footer{
+    background-image: url("assets/footer-bg.svg");
+    background-color: #f1f1f1;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.footer-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 10em;
+    justify-content: center;
+}
+
+.footer-item-title{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.footer-item-list>li{
+    padding: 0.5em;
+    list-style: none;
+}
+
+.copyright{
+    text-align: center;
+    color: #010100;
+    padding: 0.8em;
+    background-color: darkgray;
+}
+
+.card-img{
+    height: 350px;
+}
+
+nav{
+    background-image: linear-gradient(
+        70deg,
+        rgba(0,0,70),
+        60%,
+        rgba(28, 181, 224)
+    );
+}
+
+.page-title{
+text-align: center;
+padding-top: 1em;
+font-weight: 400;
+font-size: 35px;
+}
+
+.track-number{
+    font-weight: 300;
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+.sub-container{
+    display: grid;
+    grid-template-columns: 1fr 30%;
+    grid-gap: 20px;
+    padding: 2rem;
+}
+
+
+.card{
+    border: none;
+    box-shadow: -9px 10px 50px 1px rgba(0,0,0,0.26);
+    -webkit-box-shadow: -9px 10px 50px 1px rgba(0,0,0,0.26);
+    -moz-box-shadow: -9px 10px 50px 1px rgba(0,0,0,0.26);
+}
+
+.status-title{
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.status-date{
+    color: gray;
+}
+
+.line{
+    margin: 3em;
+}
+
+.status-description{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sd-title{
+    color: gray;
+    padding-bottom: 0.6em;
+    font-weight: 500;
+}
+
+
+
+.card-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-flex-item{
+    margin: 1.5em;
+}
+
+.cf-title{
+    font-weight: 600;
+}
+
+.sd-description-from{
+    color: goldenrod;
+}
+
+.sd-description-to{
+    color: forestgreen;
+}
+
+.card.activity{
+    margin: 2em;
+    box-shadow: none;
+    background-color: ghostwhite;
+}
+
+.spotlight-title{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.spotlight-container{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    padding: 2em;
+}
+
+.sp-item{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.sp-icon{
+    font-size: 2.5em;
+    color: #cccccc;
+}
+
+.sp-icon.active{
+    color: #0d6efd;
+}
+
+
+.sp-box{
+    border-style: solid;
+    border-width: 2px;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    border-color: #cccccc;
+}
+
+
+.sp-box.last{
+    border-style: solid;
+    border-width: 2px;
+    border-top: none;
+    border-bottom: none;
+    border-color: #cccccc;
+}
+
+.sp-desc,.sp-time{
+    color: #cccccc;
+}
+
+.sp-desc.active,.sp-time.active{
+    color: #010100;
+}
+
+.activity-detail{
+    margin: 2rem;
+
+}
+
+/* SIGN UP PAGE */
+
+.main-page-grid{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(2,1fr)
+}
+
+.signup-content{
+    display: grid;
+    grid-template-rows: 150px , 1fr, 100px;
+    padding: 100px;
+    background-color: white;
+}
+
+.get-stated-title{
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.get-stated-sub-title{
+    color: #444444;
+}
+
+.signup-image{
+    background-image: url("assets/sign-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-items-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.text-field{
+    margin: 10px;
+    height: 50px;
+    border-radius: 5px;
+    border-width: 1.5px;
+    border-color: #cccccc;
+    padding: 20px;
+    width: 100%;
+    display: block;
+
+}
+
+button{
+    width: 100%;
+    height: 50px;
+}
+
+.sign-in{
+    text-decoration: none;
+    font-weight: 600;
+}
