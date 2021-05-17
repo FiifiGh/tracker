@@ -84,11 +84,23 @@ if($METHOD=="REGISTER_MEMBER"){
     $username =trim($decoded['USERNAME']);
     $password =trim($decoded['PASSWORD']);
     $provider_id =trim($decoded['PROVIDERID']);
-
     $package_id =trim($decoded['PACKAGE_ID']);
     $api_validation = api_authentication($apikey,$username,$password,$provider_id,$conn);
     if ($api_validation == "Ok"){
-        echo $results = selectQuery("SELECT * FROM `activity` WHERE package_id = '$package_id'",$conn);
+        echo $results = selectQuery("SELECT * FROM `activity` WHERE package_id = '$package_id' GROUP BY date",$conn);
+    }else{
+        echo $api_validation;
+    }
+}else if ($METHOD == "GET_SHIPMENT_ACTIVITES_DETAILS"){
+    $apikey =trim($decoded['APIKEY']);
+    $username =trim($decoded['USERNAME']);
+    $password =trim($decoded['PASSWORD']);
+    $provider_id =trim($decoded['PROVIDERID']);
+    $package_id =trim($decoded['PACKAGE_ID']);
+    $activity_time = $decoded['DATE'];
+    $api_validation = api_authentication($apikey,$username,$password,$provider_id,$conn);
+    if ($api_validation == "Ok"){
+        echo $results = selectQuery("SELECT * FROM `activity` WHERE package_id = '1' AND `date`='$activity_time'",$conn);
     }else{
         echo $api_validation;
     }
