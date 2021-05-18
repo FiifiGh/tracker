@@ -1,19 +1,23 @@
 <?php
 require_once ('function/function.php');
 if (isset($_POST['track_package'])){
+    $provider_id = '493';
+    $apiKey = 'abaa6ba8663295bd60df9b8941484d31';
+    $username = 'ship_tracker';
+    $password = 'PAR9DT';
     $tracking_no = validateUserInputs($_POST['tracking_no']);
     $GET_SHIPMENT_PACKAGE = array(
         'METHOD' => urlencode('GET_SHIPMENT_PACKAGE'),
-        'APIKEY' => 'abaa6ba8663295bd60df9b8941484d31',
-        'USERNAME' => 'ship_tracker',
-        'PASSWORD' => 'PAR9DT',
-        'PROVIDERID' => '493',
+        'APIKEY' => $apiKey,
+        'USERNAME' => $username,
+        'PASSWORD' =>$password ,
+        'PROVIDERID' => $provider_id,
         'TRACKING_NO' => $tracking_no,
     );
     $get_shipment = APICall($GET_SHIPMENT_PACKAGE);
     $get_shipment_json = json_decode($get_shipment,"true");
     $getResult = $get_shipment_json['RESULT'];
-    //print_r($getResult);
+    //print_r($GET_SHIPMENT_PACKAGE);
     if ($getResult == "" || is_null($getResult)){
         echo $get_shipment_json['STATMSG'];
     }else{
@@ -37,16 +41,16 @@ if (isset($_POST['track_package'])){
 
     $GET_SHIPMENT_ACTIVITIES = array(
         'METHOD' => urlencode('GET_SHIPMENT_ACTIVITES'),
-        'APIKEY' => 'abaa6ba8663295bd60df9b8941484d31',
-        'USERNAME' => 'ship_tracker',
-        'PASSWORD' => 'PAR9DT',
-        'PROVIDERID' => '493',
+        'APIKEY' => $apiKey,
+        'USERNAME' => $username,
+        'PASSWORD' => $password,
+        'PROVIDERID' => $provider_id,
         'PACKAGE_ID' => $package_id,
     );
     $get_shipment_activities = APICall($GET_SHIPMENT_ACTIVITIES);
     $get_shipment_activities_json = json_decode($get_shipment_activities,"true");
     $getResult_activities = $get_shipment_activities_json['RESULT'];
-    //print_r($getResult);
+    //print_r($get_shipment_activities);
 
 
 }
@@ -249,10 +253,23 @@ if (isset($_POST['track_package'])){
 
 
                 <div class="activity-table">
+                    <?php
+                    if ($getResult_activities == "" || is_null($getResult_activities)){
+                        echo $get_shipment_activities_json['STATMSG'];
+                    }else{
+                    foreach ($getResult_activities as $getResults_activities){
+                    $activity_id = $getResults_activities['id'];
+                    $dateRequested = $getResults['date_time_created'];
+                    $location = $getResults_activities['location'];
+                    $description = $getResults_activities['description'];
+                    $item_date = $getResults_activities['date'];
+                    $dateRequested1 = date("jS F Y ", strtotime($item_date))
+                    //print_r($getResult_activities);
+                    ?>
                     <table class="table mb-5">
                         <thead class="table-secondary">
                             <tr>
-                                <th>Tuesday, May 20 2021</th>
+                                <th><?Php echo $dateRequested1 ?></th>
                                 <th>Location</th>
                                 <th>Time</th>
                             </tr>
@@ -261,78 +278,36 @@ if (isset($_POST['track_package'])){
 
                         <tbody>
                         <?php
-                        if ($getResult_activities == "" || is_null($getResult_activities)){
-                            echo $get_shipment_activities_json['STATMSG'];
-                        }else{
-                            foreach ($getResult_activities as $getResults_activities){
-                                $activity_id = $getResults_activities['id'];
-                                $dateRequested = $getResults['date_time_created'];
-                                $location = $getResults_activities['location'];
-                                $description = $getResults_activities['description'];
-                                $dateRequested1 = date("H:i:s", strtotime($dateRequested));
-                                //print_r($getResult_activities);
+                                $GET_SHIPMENT_ACTIVITIES_DETAILS = array(
+                                    'METHOD' => urlencode('GET_SHIPMENT_ACTIVITES_DETAILS'),
+                                    'APIKEY' => $apiKey,
+                                    'USERNAME' => $username,
+                                    'PASSWORD' => $password,
+                                    'PROVIDERID' => $provider_id,
+                                    'DATE' => $item_date,
+                                );
+                                $get_shipment_activities_details = APICall($GET_SHIPMENT_ACTIVITIES_DETAILS);
+                                $get_shipment_activities_json_details = json_decode($get_shipment_activities_details,"true");
+                                $getResult_activities_details = $get_shipment_activities_json_details['RESULT'];
+                                //print_r($get_shipment_activities_details);
+                                foreach ($getResult_activities_details as $getResult_activities_detailss){
+                                    $location_details = $getResult_activities_detailss['location'];
+                                    $description_details = $getResult_activities_detailss['description'];
+                                    $dateRequested_details = $getResults['date_time_created'];
+                                    $dateRequested1_details = date("H:i:s", strtotime($dateRequested_details));
+                                    //print_r($get_shipment_activities_details);
                             ?>
                             <tr>
-                                <td><?php echo $description ?></td>
-                                <td> <?php echo $location ?> </td>
-                                <td><?php echo $dateRequested1 ?></td>
+                                <td><?php echo $description_details ?></td>
+                                <td> <?php echo $location_details ?> </td>
+                                <td><?php echo $dateRequested1_details ?></td>
                             </tr>
                                 <?php
                                 }
-                        }
-                        ?>
-
-
+                                 ?>
                         </tbody>
                     </table>
-
-                    <table class="table mb-5">
-                        <thead class="table-secondary">
-                            <tr>
-                                <th>Tuesday, May 20 2021</th>
-                                <th>Location</th>
-                                <th>Time</th>
-                            </tr>
-                            
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>Processed at Dubai</td>
-                                <td>United Arab </td>
-                                <td>10:08 AM</td>
-                            </tr>
-                            <tr>
-                                <td>Processed at Dubai</td>
-                                <td>United Arab </td>
-                                <td>10:08 AM</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table class="table mb-5">
-                        <thead class="table-secondary">
-                            <tr>
-                                <th>Tuesday, May 20 2021</th>
-                                <th>Location</th>
-                                <th>Time</th>
-                            </tr>
-                            
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>Processed at Dubai</td>
-                                <td>United Arab </td>
-                                <td>10:08 AM</td>
-                            </tr>
-                            <tr>
-                                <td>Processed at Dubai</td>
-                                <td>United Arab </td>
-                                <td>10:08 AM</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <?php }} ?>
                 </div>
             </div>
         </div>
